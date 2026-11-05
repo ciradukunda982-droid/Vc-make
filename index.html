@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="rw"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CV Maker Rwanda - Professional</title><style>body{font-family:Arial;background:#f2f2f2;margin:0;padding:10px}h2{text-align:center;color:#0b3d91}.box{background:white;padding:15px;border-radius:10px;max-width:700px;margin:auto}input,textarea,select{width:100%;padding:10px;margin:5px 0;border:1px solid #ccc;border-radius:6px}button{background:#0b3d91;color:white;padding:12px;border:none;border-radius:6px;width:100%;font-weight:bold;margin-top:10px}.cv{background:white;padding:20px;margin-top:15px;border-top:5px solid #0b3d91}.cv h1{margin:0;color:#0b3d91}.cv h3{color:#0b3d91;border-bottom:1px solid #ddd;padding-bottom:3px}.photo{width:110px;height:110px;border-radius:50%;object-fit:cover;border:2px solid #0b3d91}@media print{body{background:white}.box{display:none}.cv{border:none}}</style></head><body>
+<h2>Kora CV Yawe - Professional Rwanda</h2>
+<div class="box">
+Ifoto: <input type="file" id="photo" accept="image/*">
+Amazina Yuzuye: <input id="name" placeholder="Ex: Chance IRADUKUNDA">
+Akazi Ushaka: <input id="job" placeholder="Ex: Cashier / Accountant">
+Telephone: <input id="phone" placeholder="078...">
+Email: <input id="email" placeholder="...@gmail.com">
+Aho Utuye: <input id="loc" placeholder="Ex: Kigali, Gasabo">
+Itariki y'Amavuko: <input id="dob" placeholder="Ex: 01/01/2000">
+Intego / Profile: <textarea id="profile" placeholder="Andika interuro 2 uvuga uko uri..."></textarea>
+Amashuri / Education: <textarea id="edu" placeholder="Ex: 2020-2024: University of Rwanda - Accounting&#10;2017-2019: GS ... - A2"></textarea>
+Uburambe / Experience: <textarea id="exp" placeholder="Ex: 2023-2024: Cashier muri ..."></textarea>
+Ubumenyi / Skills: <input id="skills" placeholder="Ex: Computer, Excel, Communication">
+Indimi / Languages: <input id="lang" placeholder="Ex: Kinyarwanda - neza, English - neza, French - gato">
+References: <textarea id="ref" placeholder="1. Amazina - Telephone&#10;2. Amazina - Telephone"></textarea>
+<button onclick="makeCV()">Kora CV Yanjye / Make My CV</button>
+<button onclick="window.print()">Download PDF / Print</button>
+</div>
+<div class="cv" id="cvOut" style="display:none"></div>
+<script>
+function makeCV(){
+let p=document.getElementById('photo').files[0];
+let img=p?URL.createObjectURL(p):'';
+document.getElementById('cvOut').style.display='block';
+document.getElementById('cvOut').innerHTML=
+(img?`<img class="photo" src="${img}">`:'')+
+`<h1>${name.value}</h1><b>${job.value}</b><p>${loc.value} | ${phone.value} | ${email.value} | DOB: ${dob.value}</p>
+<h3>PROFILE / INTEGO</h3><p>${profile.value}</p>
+<h3>EDUCATION / AMASHURI</h3><p>${edu.value.replace(/\n/g,'<br>')}</p>
+<h3>EXPERIENCE / UBURAMBE</h3><p>${exp.value.replace(/\n/g,'<br>')}</p>
+<h3>SKILLS / UBUMENYI</h3><p>${skills.value}</p>
+<h3>LANGUAGES / INDIMI</h3><p>${lang.value}</p>
+<h3>REFERENCES / ABAKUREBERA</h3><p>${ref.value.replace(/\n/g,'<br>')}</p>`;
+window.scrollTo(0,document.body.scrollHeight);
+}
+</script></body></html>
